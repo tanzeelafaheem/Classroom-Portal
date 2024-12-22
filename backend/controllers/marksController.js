@@ -1,4 +1,4 @@
-const db = require('../models/db');
+const db = require('../model/db');
 
 // Add marks
 exports.addMarks = (req, res) => {

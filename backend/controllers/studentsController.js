@@ -1,4 +1,4 @@
-const db = require('../models/db');
+const db = require('../model/db');
 
 // Add a new student
 exports.addStudent = (req, res) => {
