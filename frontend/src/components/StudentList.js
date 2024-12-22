@@ -6,19 +6,24 @@ const StudentsList = () => {
 
   useEffect(() => {
     const getStudents = async () => {
-      const { data } = await fetchStudents();
-      setStudents(data);
+      try {
+        const data = await fetchStudents();
+        setStudents(data);
+      } catch (error) {
+        console.error('Error fetching students:', error);
+      }
     };
-
     getStudents();
   }, []);
 
   return (
     <div>
-      <h2>Students</h2>
+      <h2>Students List</h2>
       <ul>
         {students.map((student) => (
-          <li key={student.id}>{student.name} - Class {student.class} {student.section}</li>
+          <li key={student.id}>
+            {student.name} - {student.class} - {student.section}
+          </li>
         ))}
       </ul>
     </div>
